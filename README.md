@@ -13,3 +13,5 @@ mv ~/.cache/nvim{,.bak}
 ```bash
 git clone git@github.com:CarlosMolinesPastor/nvim.git ~/.config/nvim
 ```
+With catppuccin theme
+![](https://github.com/CarlosMolinesPastor/nvim/blob/main/screenshot.png)
