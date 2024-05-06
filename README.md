@@ -1,2 +1,15 @@
-# nvim
-nvim based in lazyvim with catppuccin theme
+# NVIM
+### Personal nvim config based in lazyvim
+
+To install:
+1) Make a backup
+```bash
+mv ~/.config/nvim{,.bak}
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+```
+2) Clone the repository
+```bash
+git clone git@github.com:CarlosMolinesPastor/nvim.git ~/.config/nvim
+```
