@@ -22,7 +22,7 @@ return {
     style = "darker",
   },
 
-  -- Configure LazyVim to load gruvbox
+  -- Configure LazyVim -- Elige el color
 
   {
     "LazyVim/LazyVim",
