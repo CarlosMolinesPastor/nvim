@@ -12,7 +12,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.linting.eslint" },
-    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.extras.lang.rust" },
@@ -25,6 +25,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
+    { "goolord/alpha-nvim" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -53,3 +54,19 @@ require("lazy").setup({
     },
   },
 })
+
+-- -- Configuración de Alpha para la página de inicio
+-- local alpha = require("alpha")
+-- local dashboard = require("alpha.themes.startify")
+--
+-- -- Personalización de la página de inicio
+-- dashboard.section.header.val = {
+--   [[  K   K   AAAAA   RRRRR   L       III  N   N   U   U  X   X   ]],
+--   [[  K  K   A   A   R   R   L        I   NN  N   U   U   X X    ]],
+--   [[  KKK    AAAAA   RRRRR   L        I   N N N   U   U    X     ]],
+--   [[  K  K   A   A   R  R    L        I   N  NN   U   U   X X    ]],
+--   [[  K   K  A   A   R   R   LLLLL   III  N   N   UUUU  X   X   ]],
+-- }
+--
+-- -- Activar la página de inicio
+-- alpha.setup(dashboard.config)
