@@ -1,6 +1,9 @@
 return {
   "CRAG666/code_runner.nvim",
   event = "VeryLazy",
+  keys = {
+    { "<leader>R", "<cmd>RunCode<CR>", desc = "RunCode" },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -16,6 +19,6 @@ return {
     })
 
     -- Mapea F5 para ejecutar el archivo actual
-    vim.keymap.set("n", "<F5>", ":RunCode<CR>", { noremap = true, silent = true, desc = "Run code with CodeRunner" })
+    -- vim.keymap.set("n", "<F5>", ":RunCode<CR>", { noremap = true, silent = true, desc = "Run code with CodeRunner" })
   end,
 }
