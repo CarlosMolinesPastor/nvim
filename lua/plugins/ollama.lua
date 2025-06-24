@@ -1,0 +1,49 @@
+return {
+  "nomnivore/ollama.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+
+  -- All the user commands added by the plugin
+  cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
+
+  keys = {
+    -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
+    {
+      "<leader>ao",
+      ":<c-u>lua require('ollama').prompt()<cr>",
+      desc = "ollama prompt",
+      mode = { "n", "v" },
+    },
+
+    -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
+    {
+      "<leader>aG",
+      ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
+      desc = "ollama Generate Code",
+      mode = { "n", "v" },
+    },
+  },
+
+  ---@type Ollama.Config
+  opts = {
+    model = "deepseek-r1:1.5b",
+    url = "http://127.0.0.1:11434",
+    serve = {
+      on_start = false,
+      command = "ollama",
+      args = { "serve" },
+      stop_command = "pkill",
+      stop_args = { "-SIGTERM", "ollama" },
+    },
+    -- View the actual default prompts in ./lua/ollama/prompts.lua
+    prompts = {
+      Generate_Code = {
+        prompt = "Genera código para: $input. Usa el lenguaje $filetype. Sé conciso.",
+        input_label = "> ",
+        action = "replace", -- Reemplaza la selección directamente
+      },
+    },
+  },
+  -- your configuration overrides
+}

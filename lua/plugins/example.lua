@@ -33,35 +33,41 @@ return {
   -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
+    dependencies = {
+      "hrsh7th/cmp-emoji", -- Emojis
+      "nomnivore/ollama.nvim", -- Soporte para Ollama
+      "tzachar/cmp-ai", -- Fuente de autocompletado para LLMs
+    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
+      -- Orden de fuentes de autocompletado (Ollama primero)
+      opts.sources = {
+        {
+          name = "ai", -- Fuente de Ollama
+          option = {
+            model = "deepseek-r1:1.5b",
+            server = "http://127.0.0.1:11434",
+            max_lines = 10, -- Límite de contexto
+            trigger_characters = { ":", ">", "#", "//" }, -- Caracteres activadores
+          },
+        },
+        { name = "nvim_lsp" }, -- Completado del LSP
+        { name = "emoji" }, -- Emojis
+        { name = "buffer" }, -- Palabras del archivo actual
+      }
     end,
   },
-
-  -- change some telescope options and a keymap to browse plugin files
   {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      -- add a keymap to browse plugin files
-      -- stylua: ignore
-      {
-        "<leader>fp",
-        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
-        desc = "Find Plugin File",
-      },
-    },
-    -- change some options
+    "nomnivore/ollama.nvim",
     opts = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
+      model = "deepseek-r1:1.5b",
+      serve = { on_start = false }, -- Asume que Ollama ya está corriendo
+    },
+    keys = {
+      { "<leader>ao", ":<c-u>lua require('ollama').prompt()<cr>", desc = "Ollama Prompt" },
     },
   },
+  -- change some telescope options and a keymap to browse plugin files
 
   -- add pyright to lspconfig
   {
