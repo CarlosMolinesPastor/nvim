@@ -45,7 +45,7 @@ return {
         {
           name = "ai", -- Fuente de Ollama
           option = {
-            model = "deepseek-r1:1.5b",
+            model = "qwen2.5:0.5b",
             server = "http://127.0.0.1:11434",
             max_lines = 10, -- Límite de contexto
             trigger_characters = { ":", ">", "#", "//" }, -- Caracteres activadores
@@ -60,7 +60,7 @@ return {
   {
     "nomnivore/ollama.nvim",
     opts = {
-      model = "deepseek-r1:1.5b",
+      model = "qwen2.5:0.5b",
       serve = { on_start = false }, -- Asume que Ollama ya está corriendo
     },
     keys = {
