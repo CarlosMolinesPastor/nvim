@@ -38,12 +38,12 @@ return {
     },
     -- View the actual default prompts in ./lua/ollama/prompts.lua
     prompts = {
-      Generate_Code = {
-        prompt = "Genera código para: $input. Usa el lenguaje $filetype. Sé conciso.",
+      Sample_Prompt = {
+        prompt = "This is a sample prompt that receives $input and $sel(ection), among others.",
         input_label = "> ",
-        action = "replace", -- Reemplaza la selección directamente
+        model = "qwen2.5-coder:1.5b",
+        action = "display",
       },
     },
   },
-  -- your configuration overrides
 }
