@@ -27,7 +27,7 @@ return {
 
   ---@type Ollama.Config
   opts = {
-    model = "qwen2.5:0.5b",
+    model = "qwen2.5-coder:1.5b",
     url = "http://127.0.0.1:11434",
     serve = {
       on_start = false,
