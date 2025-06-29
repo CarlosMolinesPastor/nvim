@@ -17,7 +17,7 @@ mv ~/.cache/nvim{,.bak}
 
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
-ollama run qwen2.5:0.5b
+ollama run qwen2.5-coder:1.5b
 ```
 
 2. Clone the repository
