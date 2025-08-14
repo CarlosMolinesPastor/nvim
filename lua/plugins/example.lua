@@ -34,40 +34,27 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-emoji", -- Emojis
-      "nomnivore/ollama.nvim", -- Soporte para Ollama
-      "tzachar/cmp-ai", -- Fuente de autocompletado para LLMs
+      "hrsh7th/cmp-emoji",
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      -- Orden de fuentes de autocompletado (Ollama primero)
-      opts.sources = {
-        {
-          name = "ai", -- Fuente de Ollama
-          option = {
-            model = "qwen2.5:0.5b",
-            server = "http://127.0.0.1:11434",
-            max_lines = 10, -- Límite de contexto
-            trigger_characters = { ":", ">", "#", "//" }, -- Caracteres activadores
-          },
-        },
-        { name = "nvim_lsp" }, -- Completado del LSP
-        { name = "emoji" }, -- Emojis
-        { name = "buffer" }, -- Palabras del archivo actual
-      }
+      table.insert(opts.sources, { name = "emoji" })
     end,
   },
+
+  -- change some telescope options and a keymap to browse plugin files
   {
-    "nomnivore/ollama.nvim",
-    opts = {
-      model = "qwen2.5:0.5b",
-      serve = { on_start = false }, -- Asume que Ollama ya está corriendo
-    },
+    "nvim-telescope/telescope.nvim",
     keys = {
-      { "<leader>ao", ":<c-u>lua require('ollama').prompt()<cr>", desc = "Ollama Prompt" },
+      -- add a keymap to browse plugin files
+      -- stylua: ignore
+      {
+        "<leader>fp",
+        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+        desc = "Find Plugin File",
+      },
     },
   },
-  -- change some telescope options and a keymap to browse plugin files
 
   -- add pyright to lspconfig
   {

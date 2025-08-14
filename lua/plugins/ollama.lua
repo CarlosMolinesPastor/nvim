@@ -1,48 +1,52 @@
+-- lua/plugins/ai/ollama.lua
+--
+-- Configuración para ollama.nvim
+-- URL: https://github.com/nomnivore/ollama.nvim
+
 return {
   "nomnivore/ollama.nvim",
+  -- Dependencias necesarias
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-
-  -- All the user commands added by the plugin
+  -- Comandos que expone el plugin para carga diferida (lazy-loading)
   cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
-
+  -- Atajos de teclado
   keys = {
-    -- Sample keybind for prompt menu. Note that the <c-u> is important for selections to work properly.
     {
       "<leader>ao",
       ":<c-u>lua require('ollama').prompt()<cr>",
-      desc = "ollama prompt",
+      desc = "Prompt a Ollama",
       mode = { "n", "v" },
     },
-
-    -- Sample keybind for direct prompting. Note that the <c-u> is important for selections to work properly.
     {
       "<leader>aG",
       ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
-      desc = "ollama Generate Code",
+      desc = "Ollama: Generar Código",
       mode = { "n", "v" },
     },
   },
-
-  ---@type Ollama.Config
+  -- Opciones de configuración del plugin
   opts = {
-    model = "qwen2.5-coder:1.5b",
+    -- Modelo por defecto a utilizar
+    model = "qwen2.5-coder:1.b",
+    -- URL del servidor de Ollama
     url = "http://127.0.0.1:11434",
+    -- Configuración para servir modelos de Ollama directamente desde Neovim
     serve = {
-      on_start = false,
+      on_start = false, -- No iniciar el servidor automáticamente
       command = "ollama",
       args = { "serve" },
       stop_command = "pkill",
       stop_args = { "-SIGTERM", "ollama" },
     },
-    -- View the actual default prompts in ./lua/ollama/prompts.lua
+    -- Prompts personalizados
     prompts = {
-      Sample_Prompt = {
-        prompt = "This is a sample prompt that receives $input and $sel(ection), among others.",
+      Generate_Code = {
+        prompt = "Generate code for the following request: $input",
         input_label = "> ",
         model = "qwen2.5-coder:1.5b",
-        action = "display",
+        action = "display", -- 'display', 'replace', 'append', 'insert'
       },
     },
   },
