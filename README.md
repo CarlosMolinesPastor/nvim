@@ -29,9 +29,12 @@ git clone https://github.com/CarlosMolinesPastor/nvim.git ~/.config/nvim
 The possibilities:
 
 1. Screenshot the code with silicon plugin. For this you have to install `silicon` in your system. (cargo install silicon)
-2. A second terminal incorporated in the nvim window with `toggleterm` plugin. (spacebar + y)
-3. Run code with code_runner plugin. (spacebar + R)
-4. Livepreview plugin to preview html files. (spacebar + l)
-5. For ollama plugin, you can use it to generate code or text. (spacebar + a)
+   Archlinux: ``sudo pacman -S harfbuzz fontconfig libxcb freetype2 pkg-config``
+   Ubuntu/Debian: ``sudo apt update && sudo apt install -y build-essential libharfbuzz-dev libfontconfig1-dev pkg-config libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libxcb1-dev libfreetype6-dev libxml2-dev``
+   Finally: ``cargo install silicon``
+3. A second terminal incorporated in the nvim window with `toggleterm` plugin. (spacebar + y)
+4. Run code with code_runner plugin. (spacebar + R)
+5. Livepreview plugin to preview html files. (spacebar + l)
+6. For ollama plugin, you can use it to generate code or text. (spacebar + a)
 
 ![](https://github.com/CarlosMolinesPastor/nvim/blob/main/screenshot.gif)
