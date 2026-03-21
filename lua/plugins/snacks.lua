@@ -1,10 +1,25 @@
 return {
   {
     "folke/snacks.nvim",
-    priority = 1000,
+    priority = 10000,
     lazy = false,
     opts = {
-      -- tu configuración aquí
+      -- Configuración básica
+      dashboard = {
+        enabled = true,
+      },
+      explorer = {
+        enabled = true,
+      },
+      input = {
+        enabled = true,
+      },
+      picker = {
+        enabled = true,
+      },
+      notifier = {
+        enabled = true,
+      },
     },
   },
 }
