@@ -45,6 +45,14 @@ return {
       require("opencode").toggle()
     end, { desc = "Toggle opencode" })
 
+    -- AI keymaps (leader a)
+    vim.keymap.set({ "n", "x" }, "<leader>ao", function()
+      require("opencode").toggle()
+    end, { desc = "Toggle OpenCode" })
+    vim.keymap.set({ "n", "x" }, "<leader>aA", function()
+      require("opencode").ask()
+    end, { desc = "Ask OpenCode" })
+
     vim.keymap.set({ "n", "x" }, "go", function()
       return require("opencode").operator("@this ")
     end, { desc = "Add range to opencode", expr = true })

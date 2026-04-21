@@ -150,9 +150,12 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, {
+      table.insert(opts.sections.lualine_x, 2, {
         function()
-          return "😄"
+          local ok, opencode = pcall(require, "opencode")
+          if ok and opencode and opencode.is_running and opencode.is_running() then
+            return "󰘧 "
+          end
         end,
       })
     end,

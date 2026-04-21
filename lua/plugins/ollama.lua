@@ -14,7 +14,7 @@ return {
   -- Atajos de teclado
   keys = {
     {
-      "<leader>ao",
+      "<leader>aO",
       ":<c-u>lua require('ollama').prompt()<cr>",
       desc = "Prompt a Ollama",
       mode = { "n", "v" },
