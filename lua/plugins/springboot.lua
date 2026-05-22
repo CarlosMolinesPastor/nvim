@@ -24,29 +24,6 @@ return {
   -- Configuración mejorada para jdtls (opcional pero recomendada)
   {
     "mfussenegger/nvim-jdtls",
-    opts = {
-      settings = {
-        java = {
-          signatureHelp = { enabled = true },
-          contentProvider = { preferred = "fernflower" },
-          completion = {
-            favoriteStaticMembers = {
-              "org.hamcrest.MatcherAssert.assertThat",
-              "org.hamcrest.Matchers.*",
-              "org.junit.jupiter.api.Assertions.*",
-              "org.mockito.Mockito.*",
-              "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
-              "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*",
-            },
-          },
-          sources = {
-            organizeImports = {
-              starThreshold = 9999,
-              staticStarThreshold = 9999,
-            },
-          },
-        },
-      },
-    },
+    opts = {},
   },
 }
