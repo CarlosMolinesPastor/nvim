@@ -37,7 +37,7 @@ ollama run qwen2.5-coder:1.5b
 
 - **Java/JVM** - jdtls with Lombok annotation processing
 - **Spring Boot** - springboot-nvim plugin for Spring Boot development
-- **AI** - Ollama integration for code/text generation (SPC+a)
+- **AI** - OpenCode and Ollama integration for code/text generation
 - **Screenshot** - silicon for code screenshots (install via `cargo install silicon`)
 
   Archlinux: `sudo pacman -S harfbuzz fontconfig libxcb freetype2 pkg-config`
@@ -50,15 +50,36 @@ ollama run qwen2.5-coder:1.5b
 
 ## Keybindings
 
+### General
+
 | Shortcut    | Action              |
 |-------------|---------------------|
 | SPC+y       | Open terminal       |
 | SPC+R       | Run code            |
 | SPC+l       | Live preview HTML   |
-| SPC+a       | Ollama AI prompt    |
 | SPC+sr      | Spring Boot Run     |
 | SPC+sc      | Generate Java Class |
 | SPC+si      | Generate Interface  |
 | SPC+se      | Generate Enum       |
+
+### OpenCode (AI)
+
+| Shortcut    | Action                    |
+|-------------|---------------------------|
+| SPC+a+o     | Toggle OpenCode panel     |
+| SPC+a+A     | Ask OpenCode (prompt)     |
+| Ctrl+a      | Ask opencode (normal/visual) |
+| Ctrl+x      | Execute OpenCode action   |
+| Ctrl+.      | Toggle OpenCode           |
+| go          | Add range to opencode     |
+| goo         | Add line to opencode      |
+| S-Ctrl+u    | Scroll opencode up        |
+| S-Ctrl+d    | Scroll opencode down      |
+
+### Ollama
+
+| Shortcut    | Action              |
+|-------------|---------------------|
+| SPC+a       | Ollama AI prompt    |
 
 ![](https://github.com/CarlosMolinesPastor/nvim/blob/main/screenshot.gif)
