@@ -90,6 +90,7 @@ github-nvim-theme, sonokai, tokyonight, dracula, gruvbox, moonfly, onedark, sola
 | SPC+a+o     | Toggle OpenCode panel     |
 | SPC+a+A     | Ask OpenCode (prompt)     |
 | SPC+a+O     | Ollama prompt             |
+| SPC+a+G     | Ollama Generate Code     |
 | Ctrl+a      | Ask opencode (normal/visual) |
 | Ctrl+x      | Execute OpenCode action   |
 | Ctrl+.      | Toggle OpenCode           |
