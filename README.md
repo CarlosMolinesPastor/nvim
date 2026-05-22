@@ -30,7 +30,7 @@ git clone https://github.com/CarlosMolinesPastor/nvim.git ~/.config/nvim
 
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
-ollama run qwen2.5-coder:1.5b
+ollama run deepseek-coder:1.3b
 ```
 
 ## Features
@@ -45,7 +45,7 @@ ollama run qwen2.5-coder:1.5b
 ### AI Assistants
 
 - **OpenCode** - Interactive AI coding assistant (Github Models)
-- **Ollama** - Local LLM integration (qwen2.5-coder:1.5b)
+- **Ollama** - Local LLM integration (deepseek-coder:1.3b)
 - **Copilot** - GitHub Copilot suggestions
 
 ### Developer Tools

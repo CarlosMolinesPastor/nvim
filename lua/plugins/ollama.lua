@@ -29,7 +29,7 @@ return {
   -- Opciones de configuración del plugin
   opts = {
     -- Modelo por defecto a utilizar
-    model = "qwen2.5-coder:1.b",
+    model = "deepseek-coder:1.3b",
     -- URL del servidor de Ollama
     url = "http://127.0.0.1:11434",
     -- Configuración para servir modelos de Ollama directamente desde Neovim
@@ -45,7 +45,7 @@ return {
       Generate_Code = {
         prompt = "Generate code for the following request: $input",
         input_label = "> ",
-        model = "qwen2.5-coder:1.5b",
+        model = "deepseek-coder:1.3b",
         action = "display", -- 'display', 'replace', 'append', 'insert'
       },
     },
