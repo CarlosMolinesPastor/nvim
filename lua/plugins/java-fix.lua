@@ -78,14 +78,28 @@ return {
       return opts
     end,
     config = function(_, opts)
+      local cached_root_dir = nil
+
+      local function get_root_dir(path)
+        if cached_root_dir then
+          return cached_root_dir
+        end
+        local root = opts.root_dir(path)
+        if root then
+          cached_root_dir = root
+        end
+        return root
+      end
+
       local function attach_jdtls()
         local fname = vim.api.nvim_buf_get_name(0)
         if fname == "" or vim.bo.filetype ~= "java" then
           return
         end
+        local root_dir = get_root_dir(fname)
         local config = extend_or_override({
           cmd = opts.full_cmd(opts),
-          root_dir = opts.root_dir(fname),
+          root_dir = root_dir,
           init_options = {
             bundles = {},
           },
@@ -97,6 +111,13 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "java" },
         callback = attach_jdtls,
+      })
+      vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          if vim.bo.filetype == "java" then
+            attach_jdtls()
+          end
+        end,
       })
       attach_jdtls()
     end,
