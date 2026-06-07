@@ -1,6 +1,6 @@
 return {
   {
-    "jose-elias-alvarez/typescript.nvim",
+    "pmizio/typescript-tools.nvim",
     lazy = true, -- Make sure it's lazy
     init = function()
       -- Don't do anything heavy in init
@@ -9,7 +9,7 @@ return {
       "neovim/nvim-lspconfig",
     },
     config = function()
-      require("typescript").setup({
+      require("typescript-tools").setup({
         server = {
           capabilities = vim.lsp.protocol.make_client_capabilities(),
         },

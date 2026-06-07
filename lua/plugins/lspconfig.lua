@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "jose-elias-alvarez/typescript.nvim",
+    "pmizio/typescript-tools.nvim",
     init = function()
       require("lazyvim.util").lsp.on_attach(function(_, buffer)
         -- stylua: ignore
@@ -25,7 +25,7 @@ return {
     setup = {
       -- example to setup with typescript.nvim
       tsserver = function(_, opts)
-        require("typescript").setup({ server = opts })
+        require("typescript-tools").setup({ server = opts })
         return true
       end,
       -- Specify * to use this function as a fallback for any server
